@@ -1,14 +1,18 @@
+#!/usr/bin/python3
+
 import hidden_4
 
-# Get all names defined in the module
-module_names = dir(hidden_4)
+if _name_ == "_main_":
 
-# Filter names based on conditions
-filtered_names = [name for name in module_names if not name.startswith('__')]
+    # Get all names defined in the module
+    names = dir(hidden_4)
 
-# Sort the filtered names alphabetically
-sorted_names = sorted(filtered_names)
+    # Filter names based on conditions
+    filtered_names = [name for name in names if not name.startswith('__')]
 
-# Print each name on a new line
-for name in sorted_names:
-    print(name)
+    # Sort the filtered names alphabetically
+    sorted_names = sorted(filtered_names)
+
+    # Print each name on a new line
+    for name in sorted_names:
+        print(name)

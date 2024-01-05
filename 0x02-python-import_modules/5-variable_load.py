@@ -2,4 +2,6 @@
 
 from variable_load_5 import a as tiwa
 
-print(tiwa)
+    if _name_ == "_main_":
+
+    print(tiwa)
