@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
 from add_o import add
-
-    if _name_ == "_main_":
+if _name_ == "_main_":
 
     a = 1
     b = 2

@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-# import modules
 
+from calculator_1 import add, sub, mul, div
 if _name_ == "_main_":
-
-    from calculator_1 import add, sub, mul, div
 
     # define arguments
     a = 10

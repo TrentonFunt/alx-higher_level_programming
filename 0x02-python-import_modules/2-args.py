@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import sys
-
 if _name_ == "_main_":
 
     # Get the number of arguments
