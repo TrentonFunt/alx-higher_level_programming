@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+import sys
+
+# Function to add all arguments
+def add_arguments(arguments):
+    return sum(map(int, arguments))
+
+
+# Get command-line arguments (excluding the script name)
+arguments = sys.argv[1:]
+
+# Add the arguments
+result = add_arguments(arguments)
+
+# Print the result with a new line
+print(result)
