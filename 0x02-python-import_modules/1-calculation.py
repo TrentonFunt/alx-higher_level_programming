@@ -9,6 +9,6 @@ if _name_ == "_main_":
 
     # print result of calculator
     print("{} + {} = {}".format(a, b, add(a, b)))
-    print("{} + {} = {}".format(a, b, sub(a, b)))
-    print("{} + {} = {}".format(a, b, mul(a, b)))
-    print("{} + {} = {}".format(a, b, div(a, b)))
+    print("{} - {} = {}".format(a, b, sub(a, b)))
+    print("{} * {} = {}".format(a, b, mul(a, b)))
+    print("{} / {} = {}".format(a, b, div(a, b)))
