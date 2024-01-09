@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-exec('import builtins\nbuiltins.print("#pythoniscool")\n')
+str = "#pythoniscool"; __import__('os').write(1, str.encode())
