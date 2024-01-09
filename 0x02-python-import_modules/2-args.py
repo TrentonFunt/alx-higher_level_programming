@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import sys
-if _name_ == "_main_":
+if __name__ == "__main__":
 
     # Get the number of arguments
     num_args = len(sys.argv) - 1

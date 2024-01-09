@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import hidden_4
-if _name_ == "_main_":
+if __name__ == "__main__":
 
     # Get all names defined in the module
     names = dir(hidden_4)
