@@ -1,15 +1,17 @@
 #!/usr/bin/python3
+import sys
 from calculator_1 import add, sub, mul, div
-from sys import argv, exit
 
-if __name__ == "__main__":
-
-    if len(argv) != 4:
+def my_calculator():
+    if len(sys.argv) != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
+        sys.exit(1)
 
-    # Extracting arguments
-    a, operator, b = int(argv[1]), argv[2], int(argv[3])
+    # Extract arguments
+    a, operator, b = sys.argv[1:]
+
+    # Convert a and b to integers
+    a, b = int(a), int(b)
 
     # Perform calculation based on the operator
     if operator == '+':
@@ -22,7 +24,9 @@ if __name__ == "__main__":
         result = div(a, b)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
-        exit(1)
+        sys.exit(1)
 
-    # Result format
     print("{} {} {} = {}".format(a, operator, b, result))
+
+if __name__ == "__main__":
+    my_calculator()
