@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+
+def safe_print_integer(value):
+    try:
+        # Try to print the value as an integer using "{:d}".format()
+        print("{0:d}".format(value))
+
+    except (ValueError, TypeError):
+        # Handle ValueError (if the conversion to integer fails) or TypeError
+        return False
+
+    else:
+        # If printing is successful, return True
+        return True
