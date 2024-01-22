@@ -8,7 +8,7 @@ def safe_print_list_integers(my_list=[], x=0):
         for i in range(x):
             # Try to print the element as an integer using "{:d}".format()
             value = my_list[i]
-            
+
             if isinstance(value, int):
                 print("{:d}".format(value), end="")
                 printed_integers += 1
