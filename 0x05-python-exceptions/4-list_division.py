@@ -1,36 +1,35 @@
 #!/usr/bin/python3
 
 def list_division(my_list_1, my_list_2, list_length):
-    result_list = []
+    output = []
 
     for i in range(list_length):
         try:
-            # Try to divide elements of the lists
-            element_1 = my_list_1[i] if i < len(my_list_1) else 0
-            element_2 = my_list_2[i] if i < len(my_list_2) else 1  # Avoid division by 0
-            division_result = element_1 / element_2
-            result_list.append(division_result)
+            # Check for IndexError first
+            if i >= len(my_list_1) or i >= len(my_list_2):
+                raise IndexError("out of range")
 
-        except ZeroDivisionError:
-            # Handle division by 0
-            print("division by 0")
-            result_list.append(0)
+            # Check for ZeroDivisionError
+            if my_list_2[i] == 0:
+                raise ZeroDivisionError("division by 0")
 
-        except (TypeError, ValueError):
-            # Handle wrong type
-            print("wrong type")
-            result_list.append(0)
+            # Check for TypeError
+            if not isinstance(my_list_1[i],
+                              (int, float)) or not isinstance(my_list_2[i],
+                                                              (int, float)):
+                raise TypeError("wrong type")
 
-        except IndexError:
-            # Handle out of range
-            break  # Break out of the loop when IndexError occurs
+            result = my_list_1[i] / my_list_2[i]
+
+        except ZeroDivisionError as e:
+            print(e)
+            result = 0
+
+        except (TypeError, IndexError) as e:
+            print(e)
+            result = 0
 
         finally:
-            # Cleanup or final statements (if any)
-            pass
+            output.append(result)
 
-    else:
-        # This block will be executed if the loop completes
-        print("out of range")
-
-    return result_list
+    return output
