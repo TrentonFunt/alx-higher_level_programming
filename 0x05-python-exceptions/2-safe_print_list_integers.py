@@ -1,24 +1,17 @@
 #!/usr/bin/python3
 
 def safe_print_list_integers(my_list=[], x=0):
-    printed_integers = 0
 
-    try:
-        # Iterate through the elements of the list
-        for i in range(x):
-            # Try to print the element as an integer using "{:d}".format()
-            value = my_list[i]
+    printed_numbers = 0
 
-            if isinstance(value, int):
-                print("{:d}".format(value), end="")
-                printed_integers += 1
+    for i in range(x):
+        try:
+            # Print the element as an integer using "{:d}".format()
+            print("{:d}".format(my_list[i]), end="")
+            printed_numbers += 1
+        except (ValueError, TypeError):
+            # Ignore errors for non-integer elements
+            pass
 
-    except IndexError:
-        # Raise IndexError if x is greater than the length of my_list
-        raise
-
-    finally:
-        # Print a newline character after the integers
-        print()
-
-    return printed_integers
+    print()  # Print a newline character after the integers
+    return printed_numbers
