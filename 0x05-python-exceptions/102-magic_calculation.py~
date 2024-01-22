@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+
+def magic_calculation(a, b):
+
+    result = 0  # Initialize the result variable
+
+    # Loop from 1 to 2 (inclusive)
+    for i in range(1, 3):
+        try:
+            # Check if i is greater than a, raise an exception if true
+            if i > a:
+                raise Exception('Too far')
+            
+            # Perform the magical calculation
+            result += a ** b / i
+        except Exception:
+            result = b + a
+            break
+
+    return result
