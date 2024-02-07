@@ -26,3 +26,6 @@ def add_arguments_to_list():
 
     # Save the updated list to the file
     save_to_json_file(existing_data, "add_item.json")
+
+if __name__ == "__main__":
+    add_arguments_to_list()

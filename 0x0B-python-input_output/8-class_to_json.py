@@ -8,4 +8,4 @@ def class_to_json(obj):
     """Converts a Python class instance to a
     dictionary representation.
     """
-    return obj._dict_
+    return obj.__dict__
