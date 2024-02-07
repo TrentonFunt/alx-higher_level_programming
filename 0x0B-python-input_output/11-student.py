@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 """
-Defines a student.
+Module
 """
 
 
 class Student:
     """
-    Represent student class
+    Defines a student.
     """
 
     def __init__(self, first_name, last_name, age):
         """
-        Initializes a Student instance with
-        first_name, last_name, and age.
+        Initializes a Student instance with first_name, last_name, and age.
 
         Args:
             first_name (str): The first name of the student.
@@ -28,8 +27,7 @@ class Student:
         Retrieves a dictionary representation of a Student instance.
 
         Args:
-            attrs (list, optional):
-            List of attribute names to be retrieved.
+            attrs (list, optional): List of attribute names to be retrieved.
 
         Returns:
             dict: Dictionary representation of the Student instance.
@@ -39,3 +37,17 @@ class Student:
         else:
             return {attr: getattr(self, attr)
                     for attr in attrs if hasattr(self, attr)}
+
+    def reload_from_json(self, json):
+        """
+        Replaces all attributes of the Student
+        instance with the provided dictionary.
+
+        Args:
+            json (dict): Dictionary containing attribute names and values.
+
+        Returns:
+            None
+        """
+        for key, value in json.items():
+            setattr(self, key, value)
