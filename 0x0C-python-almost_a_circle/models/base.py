@@ -44,14 +44,15 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Create instance with all attributes already set"""
-        if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1)
-        elif cls.__name__ == "Square":
-            dummy = cls(1)
+        if cls.__name__ == 'Rectangle':
+            dummy_instance = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            dummy_instance = cls(1)
         else:
-            return None
-        dummy.update(**dictionary)
-        return dummy
+            raise ValueError("Invalid class type")
+
+        dummy_instance.update(**dictionary)
+        return dummy_instance
 
     @classmethod
     def load_from_file(cls):
@@ -60,10 +61,10 @@ class Base:
         try:
             with open(filename, "r") as file:
                 json_string = file.read()
+                dictionaries = cls.from_json_string(json_string)
+                return [cls.create(**d) for d in dictionaries]
         except FileNotFoundError:
             return []
-        dictionaries = cls.from_json_string(json_string)
-        return [cls.create(**dictionary) for dictionary in dictionaries]
 
     def __str__(self):
         """Return string representation of Base instance"""
