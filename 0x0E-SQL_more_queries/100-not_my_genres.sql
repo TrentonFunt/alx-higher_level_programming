@@ -1,18 +1,15 @@
--- Retrieve genres linked to Dexter
-SELECT tv_genres.id
+-- List all genres of the database hbtn_0d_tvshows
+-- not linked to the show Dexter.
+-- Records are sorted by ascending genre name.
+SELECT DISTINCT tv_genres.name
 FROM tv_genres
 INNER JOIN tv_show_genres ON tv_genres.id = tv_show_genres.genre_id
 INNER JOIN tv_shows ON tv_show_genres.show_id = tv_shows.id
-WHERE tv_shows.title = 'Dexter';
-
--- List genres not linked to Dexter
-SELECT tv_genres.name
-FROM tv_genres
-WHERE tv_genres.id NOT IN (
-    SELECT tv_genres.id
+WHERE tv_genres.name NOT IN (
+    SELECT tv_genres.name
     FROM tv_genres
     INNER JOIN tv_show_genres ON tv_genres.id = tv_show_genres.genre_id
     INNER JOIN tv_shows ON tv_show_genres.show_id = tv_shows.id
-    WHERE tv_shows.title = 'Dexter'
+    WHERE tv_shows.title = "Dexter"
 )
-ORDER BY tv_genres.name ASC;
+ORDER BY tv_genres.name;
